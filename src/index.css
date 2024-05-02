@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden;
+}
+
+[data-slot="helper-wrapper"] {
+  display: none !important;
+}
+
+.line {
+  position: relative;
+}
+
+.line::before {
+  position: absolute;
+  width: 0;
+  height: 4px;
+  background-color: #000000ad;
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  left: 0;
+  top: 50%;
+  content: "";
+  transition: all 0.5s ease;
+}
+
+.animated-line.line::before {
+  width: 100%;
+}
+
+
+.completed {
+  transition: 0.5s ease;
+}
+
+.completed {
+   opacity: 0.7 !important;
+}
