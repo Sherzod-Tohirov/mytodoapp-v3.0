@@ -40,6 +40,10 @@ export const todoSlice = createSlice({
       );
       localStorage.setItem("todos", JSON.stringify(state.todos));
     },
+    reorderTodo: (state, action) => {
+      state.todos = action.payload;
+      localStorage.setItem("todos", JSON.stringify(state.todos));
+    },
   },
 });
 

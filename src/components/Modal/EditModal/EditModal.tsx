@@ -25,7 +25,7 @@ export function EditModal({ isOpen, onOpenChange, itemId }: EditModalType) {
     formState: { errors, isValid, isLoading },
   } = useForm({
     defaultValues: {
-      todo_title: todo.title || "",
+      todo_title: todo?.title || "",
     },
   });
   const dispatch = useDispatch();

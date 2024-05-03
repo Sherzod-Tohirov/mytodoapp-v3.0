@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode, SetStateAction } from "react";
 
 export type WrapperBox = {
   children: ReactNode;
@@ -33,4 +33,15 @@ export type EditModalType = {
   isOpen: boolean | undefined;
   onOpenChange: () => void;
   itemId: number | string;
+};
+
+export type FilterContextType = {
+  alphaOrder: boolean;
+  setAlphaOrder: React.Dispatch<SetStateAction<boolean>>;
+  starredOrder: boolean;
+  setStarredOrder: React.Dispatch<SetStateAction<boolean>>;
+  doneOrder: boolean;
+  setDoneOrder: React.Dispatch<SetStateAction<boolean>>;
+  recentOrder: boolean;
+  setRecentOrder: React.Dispatch<SetStateAction<boolean>>;
 };

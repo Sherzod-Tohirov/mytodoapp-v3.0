@@ -11,7 +11,7 @@ export function Wrapper({
 }: WrapperBox) {
   return (
     <div
-      className={`w-full flex flex-${dir} justify-content-${justify} items-${align} flex-${wrap} p-[${padding}] ${stylex}`}
+      className={`relative w-full flex flex-${dir} justify-content-${justify} items-${align} flex-${wrap} p-[${padding}] ${stylex}`}
     >
       {children}
     </div>

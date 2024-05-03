@@ -10,26 +10,25 @@ import {
 import { NextUIProvider } from "@nextui-org/react";
 import { Provider } from "react-redux";
 import { store } from "./store/store.ts";
-const { Button, Text, useToast, Stack, Skeleton, Toast } = chakraTheme.components;
+import { FilterProvider } from "./components/context/FilterContext.tsx";
+const { Button, Text } = chakraTheme.components;
 
 const theme = extendBaseTheme({
   components: {
     Button,
-    Text,
-    useToast,
-    Stack, 
-    Skeleton,
-    Toast
+    Text
   },
 });
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ChakraBaseProvider theme={theme}>
-      <Provider store={store}>
-        <NextUIProvider>
-          <App />
-        </NextUIProvider>
-      </Provider>
-    </ChakraBaseProvider>
+    <FilterProvider>
+      <ChakraBaseProvider theme={theme}>
+        <Provider store={store}>
+          <NextUIProvider>
+            <App />
+          </NextUIProvider>
+        </Provider>
+      </ChakraBaseProvider>
+    </FilterProvider>
   </StrictMode>
 );

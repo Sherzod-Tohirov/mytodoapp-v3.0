@@ -1,3 +1,5 @@
+import { todo } from "../types";
+
 const months = [
   "January",
   "February",
@@ -29,16 +31,28 @@ export function identifyDate(created_date: string) {
       if (oldDay == String(date.getDate()).padStart(2, "0")) {
         return "Today";
       }
-      if(+oldDay == +String(date.getDate()).padStart(2, "0") - 1) {
-        return "Yesterday"
+      if (+oldDay == +String(date.getDate()).padStart(2, "0") - 1) {
+        return "Yesterday";
       }
 
-      for(let i = 2; i < 8; i++) {
-          if(+oldDay == (+String(date.getDate()).padStart(2, "0") - i)) {
-               return `${i} days ago`
-          }
+      for (let i = 2; i < 8; i++) {
+        if (+oldDay == +String(date.getDate()).padStart(2, "0") - i) {
+          return `${i} days ago`;
+        }
       }
     }
   }
   return created_date;
+}
+
+export function todoAlphaSortCompareFn(a: todo, b: todo): number {
+  const item1 = a.title.toLowerCase();
+  const item2 = b.title.toLowerCase();
+  if (item1 < item2) {
+    return -1;
+  } else if (item1 > item2) {
+    return 1;
+  } else {
+    return 0;
+  }
 }

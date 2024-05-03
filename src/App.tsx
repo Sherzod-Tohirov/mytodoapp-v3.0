@@ -1,6 +1,8 @@
 import "./App.css";
 import { Container } from "./components/Container";
+import { Filters } from "./components/Filters";
 import { Form } from "./components/Form";
+import { Info } from "./components/Info";
 import { List } from "./components/List";
 import { Title } from "./components/Title";
 import { Wrapper } from "./components/Wrapper";
@@ -9,9 +11,16 @@ function App() {
   return (
     <>
       <Container>
-        <Wrapper dir="col" align="center" padding="1rem" stylex="max-w-[700px] mx-auto">
+        <Wrapper
+          dir="col"
+          align="center"
+          padding="1rem"
+          stylex="max-w-[700px] mx-auto pb-10 px-5"
+        >
+          <Info />
           <Title stylex="mb-8">my todo list</Title>
           <Form stylex="mb-5" />
+          <Filters />
           <List />
         </Wrapper>
         <Toaster position="bottom-center" />

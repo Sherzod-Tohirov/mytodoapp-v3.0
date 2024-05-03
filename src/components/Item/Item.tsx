@@ -28,9 +28,10 @@ export function Item({ data }: { data: todo }) {
   return (
     <AnimatePresence>
       <motion.li
+        layout
         className={`relative flex items-center justify-between w-full gap-3 p-3 shadow-md rounded-md ${
           completed && completedChanged ? "completed" : ""
-        }`}
+        } ${data.isCompleted ? "opacity-brighter" : ""}`}
         variants={animateOnDelete ? variants.onExit : variants.item}
         initial="initial"
         animate="after"
@@ -46,13 +47,13 @@ export function Item({ data }: { data: todo }) {
             <p
               className={`font-medium cursor-pointer hover:opacity-85 transition line ${
                 completed && completedChanged ? "animated-line" : ""
-              }`}
+              } ${data.isCompleted ? "line-through" : ""}`}
             >
               {data.title}
             </p>
             <time
               className={`flex items-center gap-1 text-[12px] text-orange-${
-                identifyDate(data.created_at) == "Today" ? "500" : "300"
+                identifyDate(data.created_at) == "Today" ? "500" : "400"
               }`}
               dateTime="00:00"
             >

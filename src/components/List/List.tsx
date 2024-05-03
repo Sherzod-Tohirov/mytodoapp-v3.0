@@ -1,28 +1,20 @@
-import { useSelector } from "react-redux";
 import { Item } from "../Item";
-import { RootState } from "../../store/store";
 import { todo } from "../../utils/types";
 import { AnimatePresence, motion, useAnimate } from "framer-motion";
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NotFound } from "../NotFound";
+import { useTodos } from "../../hooks/useTodos";
+import { FilterContext } from "../context/FilterContext";
+import { container } from "./utils";
 export function List() {
+  const { todos } = useTodos();
   const [scope, animate] = useAnimate();
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
-    },
-  };
+  const filters = useContext(FilterContext);
+  
   useEffect(() => {
     animate("li", { opacity: 1 });
   });
-
-  const todos = useSelector((state: RootState) => state.todo.todos);
+ 
   return (
     <AnimatePresence>
       <motion.ul
