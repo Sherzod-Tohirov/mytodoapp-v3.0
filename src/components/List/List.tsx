@@ -14,7 +14,7 @@ export function List() {
   useEffect(() => {
     animate("li", { opacity: 1 });
   });
- 
+  
   return (
     <AnimatePresence>
       <motion.ul
@@ -23,12 +23,15 @@ export function List() {
         initial="hidden"
         animate="visible"
         ref={scope}
-      >
+      > 
         {todos.length ? (
           todos.map((todo: todo) => <Item data={todo} key={todo.id} />)
         ) : (
           <NotFound />
         )}
+        {
+          filters?.alphaOrder
+        }
       </motion.ul>
     </AnimatePresence>
   );
