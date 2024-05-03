@@ -1,7 +1,7 @@
 import { Item } from "../Item";
 import { todo } from "../../utils/types";
 import { AnimatePresence, motion, useAnimate } from "framer-motion";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { NotFound } from "../NotFound";
 import { useTodos } from "../../hooks/useTodos";
 import { FilterContext } from "../context/FilterContext";

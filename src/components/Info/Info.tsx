@@ -1,7 +1,6 @@
 import { Badge } from "@nextui-org/react";
 import { LuListTodo } from "react-icons/lu";
 import { useTodos } from "../../hooks/useTodos";
-import CountUp from 'react-countup';
 export function Info() {
   const { todos } = useTodos();
   return (
