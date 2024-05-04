@@ -15,12 +15,12 @@ function App() {
           dir="col"
           align="center"
           padding="1rem"
-          stylex="max-w-[700px] mx-auto pb-10 px-5"
+          stylex="max-w-[700px] mx-auto pb-10 px-3"
         >
           <Info />
           <Title stylex="mb-8">my todo list</Title>
           <Form stylex="mb-5" />
-          <Filters />
+          <Filters stylex="mb-10" />
           <List />
         </Wrapper>
         <Toaster position="bottom-center" />

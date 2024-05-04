@@ -5,6 +5,7 @@ import { editIsCompleted } from "../../../store/todo/todoSlice";
 import toast from "react-hot-toast";
 
 export function useHandleCompleteTask(data: todo) {
+  
   const [completed, setCompleted] = useState(data.isCompleted);
   const [completedChanged, setCompletedChanged] = useState(false);
   const dispatch = useDispatch();
@@ -12,8 +13,9 @@ export function useHandleCompleteTask(data: todo) {
     setCompletedChanged(true);
     dispatch(editIsCompleted({ id: data.id, isCompleted: e.target.checked }));
     setCompleted((prev) => !prev);
-    if (!completed) toast.success("You completed task !");
-    else toast.success("You undone task !");
+    if (!completed) {
+      toast.success("You completed task !");
+    } else toast.success("You undone task !");
   }
 
   return {

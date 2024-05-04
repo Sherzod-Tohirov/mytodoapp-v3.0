@@ -25,7 +25,7 @@ export function Form({stylex = ''}: {stylex?: string}) {
     >
       <Input
         type="text"
-        size="lg"
+        size="md"
         isInvalid={errors?.todo_title ? true : false}
         variant="underlined"
         placeholder="Enter your todo here"
@@ -38,7 +38,7 @@ export function Form({stylex = ''}: {stylex?: string}) {
         color="primary"
         variant="shadow"
         type="submit"
-        size="lg"
+        size="md"
         endContent={<MdFormatListBulletedAdd size={25} />}
         isLoading={isLoading}
       >

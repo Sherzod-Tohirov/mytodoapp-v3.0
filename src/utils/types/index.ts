@@ -20,6 +20,8 @@ export type todo = {
   isCompleted: boolean;
   isStarred: boolean;
   created_at: string;
+  created_time: string;
+  timestamp: number;
 };
 
 export type DeleteModalType = {

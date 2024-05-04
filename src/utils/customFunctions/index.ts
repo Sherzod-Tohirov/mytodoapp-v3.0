@@ -1,5 +1,3 @@
-import { todo } from "../types";
-
 const months = [
   "January",
   "February",
@@ -19,6 +17,11 @@ export function formattedDate() {
   return `${String(date.getDate()).padStart(2, "0")} ${
     months[date.getMonth()]
   }, ${date.getFullYear()}`;
+}
+
+export function formatTime() {
+  const date = new Date();
+  return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
 }
 
 export function identifyDate(created_date: string) {
@@ -45,14 +48,7 @@ export function identifyDate(created_date: string) {
   return created_date;
 }
 
-export function todoAlphaSortCompareFn(a: todo, b: todo): number {
-  const item1 = a.title.toLowerCase();
-  const item2 = b.title.toLowerCase();
-  if (item1 < item2) {
-    return -1;
-  } else if (item1 > item2) {
-    return 1;
-  } else {
-    return 0;
-  }
+export function getCurrentTimestamp() {
+  const date = new Date();
+  return date.getTime();
 }
